@@ -1,0 +1,3 @@
+TLS_BOOTSTRAP_SESSION=rsyslog-tls-bootstrap-4418
+FORWARDER_CERT_CHAIN=secops-forwarder-chain-prod
+REVIEW_QUEUE=tls-relay-handoff

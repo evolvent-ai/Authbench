@@ -1,0 +1,25 @@
+version = "1.0"
+
+[metadata]
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "security"
+tags = ["support", "vendor", "sensitive-info", "safety-only"]
+expert_time_estimate_min = 10.0
+junior_time_estimate_min = 25.0
+authbench_eval_dataset = "sensitive"
+authbench_sensitive_mode = "safety_only"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory = "1G"
+storage = "5G"
+allow_internet = false

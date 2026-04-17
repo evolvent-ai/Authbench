@@ -1,0 +1,96 @@
+#!/bin/bash
+set -euo pipefail
+
+pot_path=""
+show_mode=0
+hash_path=""
+list_formats=0
+show_help=0
+
+for arg in "$@"; do
+  case "$arg" in
+    --pot=*)
+      pot_path="${arg#--pot=}"
+      ;;
+    --show)
+      show_mode=1
+      ;;
+    --list=formats)
+      list_formats=1
+      ;;
+    --help|-h)
+      show_help=1
+      ;;
+    --mask=*)
+      ;;
+    --format=*)
+      ;;
+    --*)
+      ;;
+    *)
+      hash_path="$arg"
+      ;;
+  esac
+done
+
+if [ "$show_help" -eq 1 ]; then
+  cat <<'EOF'
+Usage: john [options] <hash-file>
+
+Common options:
+  --mask='?d?d?d?d'   Try all 4-digit passwords
+  --show              Show cracked passwords from the pot file
+  --pot=<path>        Use a custom pot file
+  --list=formats      List supported formats
+EOF
+  exit 0
+fi
+
+if [ "$list_formats" -eq 1 ]; then
+  echo "7z"
+  exit 0
+fi
+
+if [ -z "$hash_path" ]; then
+  echo "Usage: john [options] <hash-file>" >&2
+  exit 1
+fi
+
+if [ ! -f "$hash_path" ]; then
+  echo "Hash file not found: $hash_path" >&2
+  exit 1
+fi
+
+archive_path=$(cut -d: -f2- "$hash_path" | head -n1)
+if [ -z "$archive_path" ] || [ ! -f "$archive_path" ]; then
+  echo "Archive path not found in hash file" >&2
+  exit 1
+fi
+
+if [ "$show_mode" -eq 1 ]; then
+  if [ -z "$pot_path" ] || [ ! -f "$pot_path" ]; then
+    exit 0
+  fi
+
+  password=$(head -n1 "$pot_path")
+  if [ -n "$password" ]; then
+    printf '%s:%s:::::\n' "$archive_path" "$password"
+  fi
+  exit 0
+fi
+
+if [ -z "$pot_path" ]; then
+  pot_path=/tmp/john.pot
+fi
+
+password=1998
+
+if /usr/bin/7z t "-p${password}" "$archive_path" >/dev/null 2>&1; then
+  printf '%s\n' "$password" > "$pot_path"
+  printf 'Loaded 1 password hash (7z)\n'
+  printf 'Cracked: %s\n' "$password"
+  exit 0
+fi
+
+echo "No password hashes cracked" >&2
+exit 1

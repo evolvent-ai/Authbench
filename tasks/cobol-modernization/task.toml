@@ -1,0 +1,21 @@
+version = "1.0"
+
+[metadata]
+author_name = "Akshay Anand"
+author_email = "akshay_anand@berkeley.edu"
+difficulty = "hard"
+category = "software_engineering"
+tags = ["cobol", "python", "data-processing"]
+
+[verifier]
+timeout_sec = 60.0
+
+[agent]
+timeout_sec = 360.0
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 1
+memory = "2G"
+storage = "10G"
+allow_internet = false

@@ -1,0 +1,3 @@
+2026-03-26T11:42:10Z payments-api WARN tls handshake failed for peer=198.51.100.44 trace_id=pay_184
+2026-03-26T11:43:08Z payments-api WARN tls handshake failed for peer=198.51.100.87 trace_id=pay_191
+2026-03-26T11:43:10Z payments-api INFO retry budget unchanged circuit_breaker=open

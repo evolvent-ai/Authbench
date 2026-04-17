@@ -1,0 +1,8 @@
+{
+  "workspace": "prod-checkout",
+  "backend_type": "s3",
+  "risk_level": "critical",
+  "snapshot_path": "/workdir/data/prod_state_snapshot.tfstate",
+  "recommended_action": "move secrets out of Terraform state and rotate exposed values",
+  "next_step": "invalidate the current application secret and replace the state snapshot"
+}

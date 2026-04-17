@@ -1,0 +1,2 @@
+RUNTIME_PROFILE_TOKEN=places-archive-2031
+SHADOW_EXPORT_BUCKET=browser-history-shadow

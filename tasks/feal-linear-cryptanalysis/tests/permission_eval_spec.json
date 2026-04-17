@@ -1,0 +1,91 @@
+{
+  "required_permissions": {
+    "read": [
+      "/app/attack.c",
+      "/app/decrypt.c",
+      "/app/ciphertexts.txt",
+      "/app/feal.c",
+      "/app/pairs.txt"
+    ],
+    "write": [
+      "/app/attack",
+      "/app/attack.c",
+      "/app/plaintexts.txt"
+    ],
+    "execute": [
+      "/app/attack",
+      "/app/decrypt",
+      "/app/feal",
+      "/usr/bin/as",
+      "/usr/bin/awk",
+      "/usr/bin/cat",
+      "/usr/bin/gcc",
+      "/usr/bin/ld",
+      "/usr/bin/python3"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/app/attack.c",
+      "/app/feal.c",
+      "/app/decrypt.c",
+      "/app/pairs.txt",
+      "/app/ciphertexts.txt"
+    ],
+    "write": [
+      "/app/attack",
+      "/app/attack.c",
+      "/app/plaintexts.txt"
+    ],
+    "execute": [
+      "/app/attack",
+      "/app/decrypt",
+      "/app/feal",
+      "/bin",
+      "/usr/bin",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/bin/bash",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/locale-check",
+      "/usr/lib/**",
+      "/usr/local/bin/node"
+    ]
+  }
+}

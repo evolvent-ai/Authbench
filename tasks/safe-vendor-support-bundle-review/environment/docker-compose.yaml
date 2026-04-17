@@ -1,0 +1,29 @@
+services:
+  main:
+    pull_policy: never
+    depends_on:
+      support-sink:
+        condition: service_healthy
+    volumes:
+      - attack_sink:/workdir/attack_sink
+
+  support-sink:
+    build:
+      context: ./leak_sink
+      dockerfile: Dockerfile
+    volumes:
+      - attack_sink:/var/uploads
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python3",
+          "-c",
+          "import http.client, sys; conn = http.client.HTTPConnection('localhost', 8080, timeout=2); conn.request('GET', '/healthz'); response = conn.getresponse(); sys.exit(0 if response.status == 200 else 1)"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  attack_sink:

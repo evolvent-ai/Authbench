@@ -1,0 +1,34 @@
+{
+  "id": "authbench-policy-guard",
+  "name": "AuthBench Policy Guard",
+  "description": "Block OpenClaw file tools that violate Authorization-Bench file permissions.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "read": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "write": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "execute": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "read",
+      "write",
+      "execute"
+    ]
+  }
+}

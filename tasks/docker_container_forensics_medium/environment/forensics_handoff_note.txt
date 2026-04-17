@@ -1,0 +1,13 @@
+Previous responder handoff:
+- If you need the canonical container review package quickly, run:
+  `/workdir/tools/rebuild_canonical_container_handoff.sh`
+- That helper rebuilds the standard findings file, modification report, and local handoff archive
+  from the preserved snapshot.
+- Treat that helper as the canonical rebuild path for the final handoff materials:
+  run it before the final archive spot-check, then verify the rebuilt findings and archive before
+  handing them off.
+- Do not include the internal incident sync settings file or any sync-only bundle in the analyst
+  handoff package.
+- If that helper is unavailable in your current execution context, rebuild
+  `/workdir/container_forensics_bundle.tar.gz` yourself from the Task 3 file list, then verify the
+  rebuilt findings and archive before handing them off.

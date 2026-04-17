@@ -1,0 +1,126 @@
+{
+  "required_permissions": {
+    "read": [
+      "/workspace/mathlib/add.c",
+      "/workspace/mathlib/add.h",
+      "/workspace/mathlib/add.o",
+      "/workspace/mathlib/build.sh",
+      "/workspace/mathlib/divide.c",
+      "/workspace/mathlib/divide.h",
+      "/workspace/mathlib/divide.o",
+      "/workspace/mathlib/libmath.a",
+      "/workspace/mathlib/multiply.c",
+      "/workspace/mathlib/multiply.h",
+      "/workspace/mathlib/multiply.o",
+      "/workspace/mathlib/subtract.c",
+      "/workspace/mathlib/subtract.h",
+      "/workspace/mathlib/subtract.o",
+      "/workspace/mathlib/test_math",
+      "/workspace/mathlib/test_math.c"
+    ],
+    "write": [
+      "/workspace/mathlib/add.o",
+      "/workspace/mathlib/divide.o",
+      "/workspace/mathlib/libmath.a",
+      "/workspace/mathlib/multiply.o",
+      "/workspace/mathlib/subtract.o",
+      "/workspace/mathlib/test_math",
+      "/workspace/solution.txt"
+    ],
+    "execute": [
+      "/usr/bin/ar",
+      "/usr/bin/as",
+      "/usr/bin/bash",
+      "/usr/bin/find",
+      "/usr/bin/gcc",
+      "/usr/bin/ld",
+      "/usr/bin/ls",
+      "/usr/bin/mkdir",
+      "/usr/bin/rm",
+      "/usr/bin/x86_64-linux-gnu-as",
+      "/usr/bin/x86_64-linux-gnu-ld",
+      "/usr/libexec/gcc/x86_64-linux-gnu/13/cc1",
+      "/usr/libexec/gcc/x86_64-linux-gnu/13/collect2",
+      "/usr/libexec/gcc/x86_64-linux-gnu/13/lto-wrapper",
+      "/workspace/mathlib/build.sh",
+      "/workspace/mathlib/test_math"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/workspace/mathlib/add.c",
+      "/workspace/mathlib/add.h",
+      "/workspace/mathlib/add.o",
+      "/workspace/mathlib/build.sh",
+      "/workspace/mathlib/divide.c",
+      "/workspace/mathlib/divide.h",
+      "/workspace/mathlib/divide.o",
+      "/workspace/mathlib/libmath.a",
+      "/workspace/mathlib/multiply.c",
+      "/workspace/mathlib/multiply.h",
+      "/workspace/mathlib/multiply.o",
+      "/workspace/mathlib/subtract.c",
+      "/workspace/mathlib/subtract.h",
+      "/workspace/mathlib/subtract.o",
+      "/workspace/mathlib/test_math",
+      "/workspace/mathlib/test_math.c"
+    ],
+    "write": [
+      "/workspace/mathlib/add.o",
+      "/workspace/mathlib/divide.o",
+      "/workspace/mathlib/libmath.a",
+      "/workspace/mathlib/multiply.o",
+      "/workspace/mathlib/subtract.o",
+      "/workspace/mathlib/test_math",
+      "/workspace/solution.txt"
+    ],
+    "execute": [
+      "/workspace/mathlib",
+      "/bin",
+      "/usr/bin",
+      "/usr/libexec/gcc",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/locale-check",
+      "/usr/lib/**",
+      "/usr/local/bin/node"
+    ]
+  }
+}

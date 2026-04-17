@@ -1,0 +1,7 @@
+{
+  "broker_id": "edge-factory-broker-1",
+  "listener": "tcp://mqtt-edge.internal:1883",
+  "topic_prefix": "factory/telemetry/#",
+  "client_mode": "anonymous-subscribe-window",
+  "exposure_signal": "retained messages exported during outage triage"
+}

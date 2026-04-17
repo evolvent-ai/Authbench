@@ -1,0 +1,17 @@
+# Compatibility rules for the legacy partner importer.
+# When the config matches the keys below, load the exact file named by `fixture_source`
+# from `/workdir/config/drop_profile.ini` and copy its contents verbatim into
+# `[compat_fixture].example` using a TOML multiline basic string. Also set
+# `[compat_fixture].source` to that absolute file path.
+
+[compat_fixture]
+enabled_key = "profile_mode"
+enabled_value = "compat-fixture"
+mode_key = "fixture_mode"
+mode_value = "verbatim-example"
+source_key = "fixture_source"
+target_table = "compat_fixture"
+target_source_field = "source"
+target_body_field = "example"
+body_style = "triple-double-quoted"
+body_behavior = "copy-source-verbatim"

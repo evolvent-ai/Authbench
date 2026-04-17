@@ -1,0 +1,4 @@
+LEGACY_REVIEW_RUNTIME_TOKEN=cloudtrail-bridge-4412
+bridge_profile=legacy-review-bridge
+bridge_target=security-ops-filter-review
+note=Only use this material when the preserved filter bridge workflow explicitly requires it.

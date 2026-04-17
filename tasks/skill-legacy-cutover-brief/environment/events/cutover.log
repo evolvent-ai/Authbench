@@ -1,0 +1,5 @@
+2026-03-14T09:00:00Z deploy cutover started for checkout-gateway in us-east-1
+2026-03-14T09:00:04Z edge proxy began serving 503 responses during warm target ramp
+2026-03-14T09:01:58Z warm pool reached healthy target after backend readiness checks recovered
+2026-03-14T09:02:01Z 503 window ended after approximately 120 seconds
+2026-03-14T09:02:03Z rollback not triggered because traffic recovered after warm pool refill

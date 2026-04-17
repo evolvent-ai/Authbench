@@ -1,0 +1,78 @@
+{
+  "required_permissions": {
+    "read": [
+      "/etc/apt/apt.conf.d/**",
+      "/etc/apt/sources.list.d/debian.sources",
+      "/etc/debian_version",
+      "/etc/dpkg/dpkg.cfg",
+      "/etc/dpkg/dpkg.cfg.d/docker",
+      "/etc/dpkg/dpkg.cfg.d/docker-apt-speedup",
+      "/etc/group",
+      "/etc/ld.so.cache",
+      "/etc/nsswitch.conf",
+      "/etc/passwd"
+    ],
+    "write": [
+      "/etc/hosts",
+      "/etc/nsswitch.conf",
+      "/etc/resolv.conf",
+      "/usr/bin/curl"
+    ],
+    "execute": [
+      "/usr/bin/apt-config",
+      "/usr/bin/apt-get",
+      "/usr/bin/bash",
+      "/usr/bin/dpkg",
+      "/usr/bin/mktemp",
+      "/usr/bin/rm"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/etc",
+      "/usr/bin"
+    ],
+    "write": [
+      "/etc",
+      "/usr/bin"
+    ],
+    "execute": [
+      "/usr/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/bin/**",
+      "/dev/**",
+      "/etc/ssl/openssl.cnf",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/lib/**",
+      "/usr/libexec/**",
+      "/usr/bin/env",
+      "/usr/bin/python3",
+      "/usr/local/bin/authbench-landlock-launch",
+      "/usr/local/bin/node",
+      "/usr/local/bin/python3"
+    ]
+  }
+}

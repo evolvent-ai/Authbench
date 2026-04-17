@@ -1,0 +1,5 @@
+ARG AUTHBENCH_UBUNTU_PY_PLAIN_BASE=authbench-ubuntu-py-plain-base:local
+
+FROM ${AUTHBENCH_UBUNTU_PY_PLAIN_BASE}
+
+WORKDIR /app

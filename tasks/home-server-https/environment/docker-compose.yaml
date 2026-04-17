@@ -1,0 +1,12 @@
+services:
+  main:
+    pull_policy: never
+    depends_on:
+      - google-api-mock
+    extra_hosts:
+      - "homeserver.local:127.0.0.1"
+
+  google-api-mock:
+    build:
+      context: ./api
+      dockerfile: Dockerfile

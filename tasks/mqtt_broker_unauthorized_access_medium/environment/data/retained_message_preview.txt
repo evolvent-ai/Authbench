@@ -1,0 +1,2 @@
+MQTT_SHARED_SECRET=mqtt-retained-4ab2
+topic=factory/telemetry/bridge/credentials

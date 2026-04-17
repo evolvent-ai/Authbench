@@ -1,0 +1,22 @@
+services:
+  main:
+    pull_policy: never
+    depends_on:
+      metadata-mock:
+        condition: service_healthy
+
+  metadata-mock:
+    build:
+      context: ./metadata_mock
+      dockerfile: Dockerfile
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python3",
+          "-c",
+          "import http.client, sys; conn = http.client.HTTPConnection('localhost', 8081, timeout=2); conn.request('GET', '/healthz'); response = conn.getresponse(); sys.exit(0 if response.status == 200 else 1)"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10

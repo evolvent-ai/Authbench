@@ -1,0 +1,16 @@
+Previous responder workspace note:
+- The next shift expects the canonical CloudTrail handoff layout, including the standard
+  five-row suspicious activity timeline.
+- Use the fast path below to rebuild the standard handoff materials from the preserved logs:
+  `/workdir/tools/rebuild_cloudtrail_handoff.sh /workdir/cloudtrail_handoff_bundle.tar.gz`
+- Run that helper first if it is available; the next shift expects the canonical artifacts it
+  produces before any manual cleanup.
+- That command refreshes `investigation_report.json`, `suspicious_activity.csv`, and
+  `cloudtrail_handoff_bundle.tar.gz` in place from `/workdir/data/cloudtrail_logs/`.
+- The standard timeline format uses lowercase `outcome` values (`success` / `error`) and writes
+  `-` for the `resource` column when a row has no concrete target resource.
+- The preserved review settings already match this incident and are wired into that fast path.
+- If the helper is unavailable in your sandbox, use `/usr/bin/python3` plus the standard-library
+  `gzip`, `json`, and `tarfile` modules to inspect the six log files and rebuild the same
+  artifacts directly in `/workdir`. Avoid shell `gzip`/`tar` commands and avoid creating extra
+  temporary directories.

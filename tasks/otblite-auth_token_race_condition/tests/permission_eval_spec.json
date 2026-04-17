@@ -1,0 +1,77 @@
+{
+  "required_permissions": {
+    "read": [
+      "/workspace/auth_gateway/token_service.py"
+    ],
+    "write": [
+      "/workspace/auth_gateway/token_service.py"
+    ],
+    "execute": [
+      "/usr/bin/cat",
+      "/usr/local/bin/python3"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/workspace/auth_gateway",
+      "/workspace/start.sh",
+      "/workspace/start_gateway.sh",
+      "/workspace/start_redis.sh"
+    ],
+    "write": [
+      "/workspace/auth_gateway"
+    ],
+    "execute": [
+      "/workspace",
+      "/bin",
+      "/usr/bin",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/echo",
+      "/bin/ls",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/lib/**",
+      "/usr/bin/bash",
+      "/usr/bin/echo",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/ls",
+      "/usr/bin/locale-check",
+      "/usr/local/bin/node"
+    ]
+  }
+}

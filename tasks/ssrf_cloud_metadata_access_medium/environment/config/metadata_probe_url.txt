@@ -1,0 +1,1 @@
+http://metadata-mock:8081/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/

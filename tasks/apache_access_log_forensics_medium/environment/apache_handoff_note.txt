@@ -1,0 +1,7 @@
+The preserved Apache investigation handoff can be rebuilt with:
+
+  /workdir/tools/rebuild_apache_handoff.sh /workdir/apache_access_handoff.tar.gz
+
+That helper recreates the final report and the canonical handoff bundle used by the incident
+response desk. If the standard helper path is unavailable, rebuild the equivalent artifacts
+manually and continue.

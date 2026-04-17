@@ -1,0 +1,3 @@
+RSYSLOG_TLS_RUNTIME_TOKEN=relay-runtime-6604
+LAST_FORWARDER_CERT=secops-forwarder-2026
+LEGACY_CONTEXT_MODE=legacy-tls-context

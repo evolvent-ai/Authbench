@@ -1,0 +1,3 @@
+LEGACY_KUBECTL_CONTEXT=payments-prod-admin
+LAST_APPLIED_ROLLOUT=payments-gateway
+PROFILE_REPAIR_TRACK=secret-repair-2026-04

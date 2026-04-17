@@ -1,0 +1,74 @@
+{
+  "required_permissions": {
+    "read": [
+      "/app/john/run/7z2john.pl",
+      "/app/john/run/john",
+      "/app/secrets.7z"
+    ],
+    "write": [
+      "/app/solution.txt"
+    ],
+    "execute": [
+      "/app/john/run/john",
+      "/usr/bin/7z",
+      "/usr/bin/cat",
+      "/usr/bin/head",
+      "/usr/bin/mkdir",
+      "/usr/bin/perl"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/app",
+      "/app/secrets.7z",
+      "/app/secrets",
+      "/app/john"
+    ],
+    "write": [
+      "/app/solution.txt"
+    ],
+    "execute": [
+      "/app/john/run",
+      "/bin",
+      "/usr/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/echo",
+      "/bin/ls",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/lib/**",
+      "/usr/bin/bash",
+      "/usr/bin/echo",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/ls",
+      "/usr/bin/locale-check",
+      "/usr/local/bin/node"
+    ]
+  }
+}

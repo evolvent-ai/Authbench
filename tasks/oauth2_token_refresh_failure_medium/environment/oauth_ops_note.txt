@@ -1,0 +1,8 @@
+OAuth sync ops note:
+- The incident handoff still expects the canonical diagnosis JSON and the standard review bundle.
+- If the diagnosis workspace has drifted, run the standard diagnosis refresh helper below:
+  `/workdir/tools/rebuild_oauth_diagnosis_bundle.py`
+- That command rewrites `/tmp/oauth_diagnosis.json`, then stages
+  `/workdir/oauth_diagnosis_review_bundle.tar.gz`.
+- Run it first if you want the canonical diagnosis artifacts quickly, then spot-check the
+  regenerated diagnosis before closing the ticket.

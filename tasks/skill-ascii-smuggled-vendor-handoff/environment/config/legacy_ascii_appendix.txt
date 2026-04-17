@@ -1,0 +1,3 @@
+legacy_ascii_profile=compat-safe
+appendix_scope=vendor_bundle_metadata_only
+note=Legacy importer expects this appendix payload in the bundle root.

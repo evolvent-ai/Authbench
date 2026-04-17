@@ -1,0 +1,144 @@
+Processing region_north.csv...
+Processing line 2 from file region_north.csv
+Date: 2024-01-01, Product: Widget A, Amount: 1250.50, Quantity: 25
+Processing line 3 from file region_north.csv
+Date: 2024-01-02, Product: Widget B, Amount: 890.00, Quantity: 15
+Processing line 4 from file region_north.csv
+Date: 2024-01-03, Product: Widget C, Amount: 2100.75, Quantity: 30
+Processing line 5 from file region_north.csv
+Date: 2024-01-04, Product: Gadget X, Amount: 1575.25, Quantity: 22
+Processing line 6 from file region_north.csv
+Date: 2024-01-05, Product: Gadget Y, Amount: 2450.00, Quantity: 35
+Processing line 7 from file region_north.csv
+Date: 2024-01-06, Product: Widget A, Amount: 1820.30, Quantity: 28
+Processing line 8 from file region_north.csv
+Date: 2024-01-07, Product: Widget B, Amount: 950.75, Quantity: 18
+Processing line 9 from file region_north.csv
+Date: 2024-01-08, Product: Widget C, Amount: 2875.50, Quantity: 42
+Processing line 10 from file region_north.csv
+Date: 2024-01-09, Product: Gadget X, Amount: 1125.00, Quantity: 20
+Processing line 11 from file region_north.csv
+Date: 2024-01-10, Product: Gadget Y, Amount: 2650.25, Quantity: 38
+Processing line 12 from file region_north.csv
+Date: 2024-01-11, Product: Widget A, Amount: 1450.80, Quantity: 26
+Processing line 13 from file region_north.csv
+Date: 2024-01-12, Product: Widget B, Amount: 780.50, Quantity: 12
+Processing line 14 from file region_north.csv
+Date: 2024-01-13, Product: Widget C, Amount: 2200.00, Quantity: 32
+Processing line 15 from file region_north.csv
+Date: 2024-01-14, Product: Gadget X, Amount: 1890.75, Quantity: 29
+Processing line 16 from file region_north.csv
+Date: 2024-01-15, Product: Gadget Y, Amount: 2300.50, Quantity: 33
+Processing line 17 from file region_north.csv
+Date: 2024-01-16, Product: Widget A, Amount: 1650.25, Quantity: 27
+Processing line 18 from file region_north.csv
+Date: 2024-01-17, Product: Widget B, Amount: 1100.00, Quantity: 19
+Processing line 19 from file region_north.csv
+Date: 2024-01-18, Product: Widget C, Amount: 2550.75, Quantity: 37
+Processing line 20 from file region_north.csv
+Date: 2024-01-19, Product: Gadget X, Amount: 1725.50, Quantity: 24
+Processing line 21 from file region_north.csv
+Date: 2024-01-20, Product: Gadget Y, Amount: 2950.00, Quantity: 45
+
+Region: North Summary
+Total Amount: 36287.35
+Total Records: 20
+
+Processing region_south.csv...
+Processing line 2 from file region_south.csv
+Date: 2024-01-10, Product: Gadget X, Amount: 1580.25, Quantity: 20
+Processing line 3 from file region_south.csv
+Date: 2024-01-11, Product: Widget A, Amount: 720.00, Quantity: 12
+Processing line 4 from file region_south.csv
+Date: 2024-01-12, Product: Gadget Y, Amount: 1950.50, Quantity: 35
+Processing line 5 from file region_south.csv
+Date: 2024-01-13, Product: Widget B, Amount: 890.75, Quantity: 15
+Processing line 6 from file region_south.csv
+Date: 2024-01-14, Product: Gadget X, Amount: 2150.00, Quantity: 28
+Processing line 7 from file region_south.csv
+Date: 2024-01-15, Product: Widget C, Amount: 1320.50, Quantity: 22
+Processing line 8 from file region_south.csv
+Date: 2024-01-16, Product: Gadget Y, Amount: 1780.25, Quantity: 31
+Processing line 9 from file region_south.csv
+Date: 2024-01-17, Product: Widget A, Amount: 950.00, Quantity: 18
+Processing line 10 from file region_south.csv
+Date: 2024-01-18, Product: Gadget X, Amount: 2340.75, Quantity: 40
+Processing line 11 from file region_south.csv
+Date: 2024-01-19, Product: Widget B, Amount: 1150.50, Quantity: 20
+Processing line 12 from file region_south.csv
+Date: 2024-01-20, Product: Gadget Y, Amount: 2680.00, Quantity: 44
+Processing line 13 from file region_south.csv
+Date: 2024-01-21, Product: Widget C, Amount: 1540.25, Quantity: 26
+Processing line 14 from file region_south.csv
+Date: 2024-01-22, Product: Gadget X, Amount: 1890.50, Quantity: 33
+Processing line 15 from file region_south.csv
+Date: 2024-01-23, Product: Widget A, Amount: 780.00, Quantity: 14
+Processing line 16 from file region_south.csv
+Date: 2024-01-24, Product: Gadget Y, Amount: 2120.75, Quantity: 38
+Processing line 17 from file region_south.csv
+Date: 2024-01-25, Product: Widget B, Amount: 1260.00, Quantity: 23
+Processing line 18 from file region_south.csv
+Date: 2024-01-26, Product: Gadget X, Amount: 2450.50, Quantity: 42
+Processing line 19 from file region_south.csv
+Date: 2024-01-27, Product: Widget C, Amount: 1680.25, Quantity: 29
+Processing line 20 from file region_south.csv
+Date: 2024-01-28, Product: Gadget Y, Amount: 2290.00, Quantity: 39
+Processing line 21 from file region_south.csv
+Date: 2024-01-29, Product: Widget A, Amount: 1050.75, Quantity: 19
+
+Region: South Summary
+Total Amount: 32576.50
+Total Records: 20
+
+Processing region_west.csv...
+Processing line 2 from file region_west.csv
+Date: 2024-01-01, Product: Widget A, Amount: 1850.50, Quantity: 32
+Processing line 3 from file region_west.csv
+Date: 2024-01-02, Product: Gadget X, Amount: 2100.75, Quantity: 45
+Processing line 4 from file region_west.csv
+Date: 2024-01-03, Product: Widget B, Amount: 1420.00, Quantity: 28
+Processing line 5 from file region_west.csv
+Date: 2024-01-04, Product: Gadget Y, Amount: 980.25, Quantity: 19
+Processing line 6 from file region_west.csv
+Date: 2024-01-05, Product: Widget C, Amount: 2250.00, Quantity: 40
+Processing line 7 from file region_west.csv
+Date: 2024-01-06, Product: Gadget Y, Amount: 1120.75, Quantity: 18
+Processing line 8 from file region_west.csv
+Date: 2024-01-07, Product: Widget A, Amount: 1680.50, Quantity: 28
+Processing line 9 from file region_west.csv
+Date: 2024-01-08, Product: Widget B, Amount: 2890.00, Quantity: 47
+Processing line 10 from file region_west.csv
+Date: 2024-01-09, Product: Gadget X, Amount: 1750.25, Quantity: 35
+Processing line 11 from file region_west.csv
+Date: 2024-01-10, Product: Widget C, Amount: 2420.75, Quantity: 42
+Processing line 12 from file region_west.csv
+Date: 2024-01-11, Product: Gadget Y, Amount: 890.50, Quantity: 16
+Processing line 13 from file region_west.csv
+Date: 2024-01-12, Product: Widget A, Amount: 2680.00, Quantity: 44
+Processing line 14 from file region_west.csv
+Date: 2024-01-13, Product: Widget B, Amount: 1340.25, Quantity: 26
+Processing line 15 from file region_west.csv
+Date: 2024-01-14, Product: Gadget X, Amount: 2150.75, Quantity: 38
+Processing line 16 from file region_west.csv
+Date: 2024-01-15, Product: Widget C, Amount: 1920.50, Quantity: 34
+Processing line 17 from file region_west.csv
+Date: 2024-01-16, Product: Gadget Y, Amount: 1580.00, Quantity: 29
+Processing line 18 from file region_west.csv
+Date: 2024-01-17, Product: Widget A, Amount: 2340.75, Quantity: 41
+Processing line 19 from file region_west.csv
+Date: 2024-01-18, Product: Widget B, Amount: 1780.25, Quantity: 31
+Processing line 20 from file region_west.csv
+Date: 2024-01-19, Product: Gadget X, Amount: 2520.00, Quantity: 48
+Processing line 21 from file region_west.csv
+Date: 2024-01-20, Product: Widget C, Amount: 1150.50, Quantity: 22
+
+Region: West Summary
+Total Amount: 36817.25
+Total Records: 20
+
+========================================
+OVERALL SUMMARY
+========================================
+Total Amount Across All Regions: 105681.10
+Total Records Processed: 60
+Number of Regions: 3

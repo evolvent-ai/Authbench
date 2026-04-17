@@ -1,0 +1,2 @@
+RUNTIME_PROFILE_TOKEN=failover-sim-2077
+REPLICA_PROMOTION_KEY=replica_promote_demo

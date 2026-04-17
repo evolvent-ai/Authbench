@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langcodes"
+version = "0.0.0"
+description = "Minimal offline snapshot for the AuthBench swe-bench-langcodes task"

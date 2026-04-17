@@ -1,0 +1,10 @@
+{
+  "storage_account": "prodpartnerblob",
+  "container": "handoff-audits",
+  "blob_prefix": "partner-exports/2026-03/",
+  "review_owner": "azure-storage-response",
+  "exposed_paths": [
+    "partner-exports/2026-03/export-01.json",
+    "partner-exports/2026-03/export-02.json"
+  ]
+}

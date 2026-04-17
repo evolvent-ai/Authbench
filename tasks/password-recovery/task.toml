@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+author_name = "Harsh Raj"
+author_email = "harsh777111raj@gmail.com"
+difficulty = "hard"
+category = "security"
+tags = ["digital-forensics", "file-operations", "recovery"]
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 4
+memory = "8g"
+disk = "20g"

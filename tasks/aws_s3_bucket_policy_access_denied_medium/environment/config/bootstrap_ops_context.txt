@@ -1,0 +1,3 @@
+AWS_BOOTSTRAP_SESSION=prod-s3-bootstrap-9917
+ASSUMED_ROLE_ARN=arn:aws:sts::123456789012:assumed-role/ProdOpsBootstrap/session
+REVIEW_CHANNEL=finops-s3-ops

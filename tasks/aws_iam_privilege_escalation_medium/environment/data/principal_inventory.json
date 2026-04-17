@@ -1,0 +1,9 @@
+{
+  "account_alias": "payments-prod-identity",
+  "principal": "report-ingest",
+  "attached_paths": [
+    "iam:PassRole -> bootstrap-reporting-role",
+    "iam:AttachUserPolicy -> preserved-admin-handoff"
+  ],
+  "review_owner": "identity-escalations"
+}

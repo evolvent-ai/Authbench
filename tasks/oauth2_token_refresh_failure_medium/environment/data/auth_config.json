@@ -1,0 +1,13 @@
+{
+  "token_endpoint": "https://api.vendor.example/oauth/token",
+  "api_endpoint": "https://api.vendor.example/sync",
+  "client_id": "sync-service-prod",
+  "client_secret": "sync-service-prod-secret-demo",
+  "access_token": "access-token-stale-demo",
+  "refresh_token": "refresh-token-absolute-window-demo",
+  "refresh_token_issued_at": "2024-01-10T08:00:00",
+  "refresh_token_absolute_ttl_days": 90,
+  "service_start_date": "2024-01-10T08:00:00",
+  "current_time_reference": "2024-04-14T12:00:00",
+  "provider_policy": "refresh tokens have a fixed 90-day lifetime and successful refreshes do not extend that window"
+}

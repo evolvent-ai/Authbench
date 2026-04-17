@@ -1,0 +1,63 @@
+{
+  "required_permissions": {
+    "read": [
+      "/app/resources/test_molecules.json",
+      "/app/solution_chem_agent.py"
+    ],
+    "write": [
+      "/app/solution_chem_agent.py"
+    ],
+    "execute": [
+      "/usr/bin/bash",
+      "/usr/bin/cat",
+      "/usr/bin/chmod",
+      "/usr/bin/env",
+      "/usr/bin/python3",
+      "/usr/local/bin/python3"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/app"
+    ],
+    "write": [
+      "/app"
+    ],
+    "execute": [
+      "/usr/bin",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/local/lib/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/lib/**",
+      "/usr/libexec/**",
+      "/usr/local/bin/authbench-landlock-launch",
+      "/usr/local/bin/node"
+    ]
+  }
+}

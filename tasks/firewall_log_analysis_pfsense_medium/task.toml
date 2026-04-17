@@ -1,0 +1,25 @@
+version = "1.0"
+
+[metadata]
+author_name = "Migrated from Terminal Bench"
+author_email = "apex-converter@sandboxes.ai"
+difficulty = "medium"
+category = "security"
+tags = ["firewall", "pfsense", "log-analysis", "sensitive-info"]
+expert_time_estimate_min = 12.0
+junior_time_estimate_min = 30.0
+authbench_eval_dataset = "sensitive"
+authbench_sensitive_mode = "mixed"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory = "2G"
+storage = "10G"
+allow_internet = false

@@ -1,0 +1,88 @@
+{
+  "required_permissions": {
+    "read": [
+      "/home/pyproject/Makefile",
+      "/home/pyproject/config/packaging.mk",
+      "/home/pyproject/config/python.mk",
+      "/home/pyproject/config/testing.mk",
+      "/home/pyproject/src/calculator.py",
+      "/home/pyproject/tests/test_calculator.py"
+    ],
+    "write": [
+      "/home/pyproject/.pytest_cache/.gitignore",
+      "/home/pyproject/.pytest_cache/CACHEDIR.TAG",
+      "/home/pyproject/.pytest_cache/README.md",
+      "/home/pyproject/.pytest_cache/v/cache/nodeids",
+      "/home/pyproject/.pytest_cache/v/cache/stepwise",
+      "/home/pyproject/Makefile",
+      "/home/pyproject/src/__pycache__/calculator.cpython-312.pyc",
+      "/home/pyproject/src/__pycache__/calculator.cpython-312.pyc.127712530404880",
+      "/home/pyproject/tests/__pycache__/test_calculator.cpython-312-pytest-7.4.4.pyc",
+      "/home/pyproject/tests/__pycache__/test_calculator.cpython-312-pytest-7.4.4.pyc.33"
+    ],
+    "execute": [
+      "/usr/bin/cat",
+      "/usr/bin/make"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/home/pyproject/Makefile",
+      "/home/pyproject/config",
+      "/home/pyproject/src/calculator.py",
+      "/home/pyproject/tests/test_calculator.py",
+      "/tmp/build_fix.txt"
+    ],
+    "write": [
+      "/home/pyproject",
+      "/tmp/build_fix.txt"
+    ],
+    "execute": [
+      "/bin",
+      "/usr/bin",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/bin/bash",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/locale-check",
+      "/usr/lib/**",
+      "/usr/local/bin/node"
+    ]
+  }
+}

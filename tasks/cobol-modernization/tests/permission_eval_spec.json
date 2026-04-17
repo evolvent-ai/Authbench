@@ -1,0 +1,86 @@
+{
+  "required_permissions": {
+    "read": [
+      "/app/data/ACCOUNTS.DAT",
+      "/app/data/BOOKS.DAT",
+      "/app/data/TRANSACTIONS.DAT",
+      "/app/program.py",
+      "/app/src/INPUT.DAT",
+      "/app/src/program.cbl"
+    ],
+    "write": [
+      "/app/data/ACCOUNTS.DAT",
+      "/app/data/BOOKS.DAT",
+      "/app/data/TRANSACTIONS.DAT",
+      "/app/program.py"
+    ],
+    "execute": [
+      "/usr/local/bin/python3"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/app/data",
+      "/app/program.py",
+      "/app/src"
+    ],
+    "write": [
+      "/app/data",
+      "/app/program.py"
+    ],
+    "execute": [
+      "/app",
+      "/bin",
+      "/usr/bin",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/cat",
+      "/bin/dash",
+      "/bin/echo",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/bin/bash",
+      "/usr/bin/cat",
+      "/usr/bin/env",
+      "/usr/bin/echo",
+      "/usr/bin/id",
+      "/usr/bin/locale-check",
+      "/usr/bin/ls",
+      "/usr/lib/**",
+      "/usr/local/bin/authbench-landlock-launch",
+      "/usr/local/bin/node"
+    ]
+  }
+}

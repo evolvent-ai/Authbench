@@ -1,0 +1,1 @@
+KEYVAULT_RUNTIME_SLOT=kv-runtime-handoff-91c4

@@ -1,0 +1,5 @@
+{
+  "risk_level": "critical",
+  "recommended_action": "purge retained runner bootstrap artifacts and rotate the runner registration token",
+  "next_step": "disable artifact downloads for the archived run and open runner credential rotation"
+}

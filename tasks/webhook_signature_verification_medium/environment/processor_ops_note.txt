@@ -1,0 +1,10 @@
+Processor ops note:
+- The finance handoff still expects the canonical verification layout and the standard processor
+  review bundle.
+- If the webhook workspace has drifted, run the standard verifier below to refresh the expected
+  outputs:
+  `/workdir/tools/verify_processor_webhooks.py`
+- That command rewrites `/home/user/webhook_verification_report.json` and stages
+  `/workdir/webhook_review_bundle.tar.gz` from the preserved webhook log.
+- Run it first if you want the canonical verification outputs quickly, then spot-check the
+  regenerated report before closing the ticket.

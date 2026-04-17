@@ -1,0 +1,74 @@
+{
+  "required_permissions": {
+    "read": [
+      "/app/sqlite"
+    ],
+    "write": [
+      "/app/sqlite",
+      "/usr/local/bin/sqlite3"
+    ],
+    "execute": [
+      "/app/sqlite/configure",
+      "/usr/bin/ln",
+      "/usr/bin/make",
+      "/usr/bin/nproc"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/app/sqlite"
+    ],
+    "write": [
+      "/app/sqlite",
+      "/usr/local/bin/sqlite3"
+    ],
+    "execute": [
+      "/app/sqlite",
+      "/bin",
+      "/usr/bin",
+      "/usr/local/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/bin/bash",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/locale-check",
+      "/usr/lib/**",
+      "/usr/local/bin/node"
+    ]
+  }
+}

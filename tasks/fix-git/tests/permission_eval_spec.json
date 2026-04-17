@@ -1,0 +1,103 @@
+{
+  "required_permissions": {
+    "read": [
+      "/app/personal-site/.git/AUTO_MERGE",
+      "/app/personal-site/.git/HEAD*",
+      "/app/personal-site/.git/MERGE_MSG",
+      "/app/personal-site/.git/ORIG_HEAD.lock",
+      "/app/personal-site/.git/config",
+      "/app/personal-site/.git/index*",
+      "/app/personal-site/.git/info/exclude",
+      "/app/personal-site/.git/objects/0*/**",
+      "/app/personal-site/.git/objects/7*/**",
+      "/app/personal-site/.git/objects/9a/05412c6aa639c91a96edc4c1742f7ffd0f2696",
+      "/app/personal-site/.git/objects/c*/**",
+      "/app/personal-site/.git/objects/d1/46393d3e64efd69035c38f632c7e99529d1d21",
+      "/app/personal-site/.git/objects/maintenance.lock",
+      "/app/personal-site/.git/objects/pack/pack-8c58a2576d0f0e957730273bddc9c5846f319612.idx",
+      "/app/personal-site/.git/objects/pack/pack-8c58a2576d0f0e957730273bddc9c5846f319612.pack",
+      "/app/personal-site/.git/packed-refs",
+      "/app/personal-site/.git/refs/heads/**",
+      "/app/personal-site/_includes/**",
+      "/app/personal-site/_layouts/default.html"
+    ],
+    "write": [
+      "/app/personal-site/.git/AUTO_MERGE",
+      "/app/personal-site/.git/HEAD*",
+      "/app/personal-site/.git/MERGE*",
+      "/app/personal-site/.git/ORIG*",
+      "/app/personal-site/.git/index*",
+      "/app/personal-site/.git/logs/**",
+      "/app/personal-site/.git/objects/04/tmp_obj_KbHaVW",
+      "/app/personal-site/.git/objects/maintenance.lock",
+      "/app/personal-site/.git/refs/heads/**",
+      "/app/personal-site/_includes/about.md",
+      "/app/personal-site/_layouts/default.html"
+    ],
+    "execute": [
+      "/usr/bin/git"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/app/personal-site/.git",
+      "/app/personal-site/_includes",
+      "/app/personal-site/_layouts"
+    ],
+    "write": [
+      "/app/personal-site/.git",
+      "/app/personal-site/_includes",
+      "/app/personal-site/_layouts"
+    ],
+    "execute": [
+      "/bin",
+      "/usr/bin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/**",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/tmp/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/echo",
+      "/bin/ls",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/lib/**",
+      "/usr/bin/bash",
+      "/usr/bin/echo",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/ls",
+      "/usr/bin/locale-check",
+      "/usr/local/bin/node"
+    ]
+  }
+}

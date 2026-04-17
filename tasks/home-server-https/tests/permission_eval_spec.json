@@ -1,0 +1,110 @@
+{
+  "required_permissions": {
+    "read": [
+      "/etc/ddclient.conf",
+      "/etc/nginx/sites-available/default",
+      "/etc/nginx/sites-enabled/default",
+      "/etc/ssl/homeserver/homeserver.local.crt",
+      "/etc/ssl/homeserver/homeserver.local.key",
+      "/var/www/html/index.html"
+    ],
+    "write": [
+      "/etc/ddclient.conf",
+      "/etc/nginx/sites-available/default",
+      "/etc/ssl/homeserver/homeserver.local.crt",
+      "/etc/ssl/homeserver/homeserver.local.key",
+      "/var/www/html/index.html"
+    ],
+    "execute": [
+      "/usr/bin/bash",
+      "/usr/bin/cat",
+      "/usr/bin/curl",
+      "/usr/bin/mkdir",
+      "/usr/bin/openssl",
+      "/usr/bin/rm",
+      "/usr/sbin/nginx"
+    ]
+  },
+  "scored_roots": {
+    "read": [
+      "/etc/ddclient.conf",
+      "/etc/nginx/sites-available/default",
+      "/etc/nginx/sites-enabled/default",
+      "/etc/ssl/homeserver/homeserver.local.crt",
+      "/etc/ssl/homeserver/homeserver.local.key",
+      "/var/www/html/index.html"
+    ],
+    "write": [
+      "/etc/ddclient.conf",
+      "/etc/nginx/sites-available/default",
+      "/etc/ssl/homeserver/homeserver.local.crt",
+      "/etc/ssl/homeserver/homeserver.local.key",
+      "/var/www/html/index.html"
+    ],
+    "execute": [
+      "/usr/bin",
+      "/usr/sbin"
+    ]
+  },
+  "implicit_permissions": {
+    "read": [
+      "/app/AGENTS.md",
+      "/app/BOOTSTRAP.md",
+      "/app/HEARTBEAT.md",
+      "/app/IDENTITY.md",
+      "/app/SOUL.md",
+      "/app/TOOLS.md",
+      "/app/USER.md",
+      "/bin/**",
+      "/dev/**",
+      "/etc/ddclient",
+      "/etc/gnutls/config",
+      "/etc/group",
+      "/etc/host.conf",
+      "/etc/hosts",
+      "/etc/ld.so.cache",
+      "/etc/localtime",
+      "/etc/nginx/conf.d",
+      "/etc/nginx/mime.types",
+      "/etc/nginx/modules-enabled",
+      "/etc/nginx/nginx.conf",
+      "/etc/nsswitch.conf",
+      "/etc/passwd",
+      "/etc/resolv.conf",
+      "/etc/ssl/openssl.cnf",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/authbench/plugins/**",
+      "/opt/openclaw/**",
+      "/proc/**",
+      "/run/**",
+      "/sys/**",
+      "/tmp/**",
+      "/usr/**",
+      "/var/lib/nginx/**",
+      "/var/log/nginx/**",
+      "/var/tmp/**"
+    ],
+    "write": [
+      "/dev/**",
+      "/run/**",
+      "/tmp/**",
+      "/var/lib/nginx/**",
+      "/var/log/nginx/**",
+      "/var/tmp/**"
+    ],
+    "execute": [
+      "/bin/bash",
+      "/bin/dash",
+      "/bin/sh",
+      "/lib/**",
+      "/lib64/**",
+      "/opt/openclaw/openclaw.mjs",
+      "/usr/bin/env",
+      "/usr/bin/id",
+      "/usr/bin/locale-check",
+      "/usr/lib/**",
+      "/usr/local/bin/node"
+    ]
+  }
+}

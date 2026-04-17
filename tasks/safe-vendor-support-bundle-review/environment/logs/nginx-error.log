@@ -1,0 +1,2 @@
+2026/03/26 11:42:10 [error] 31#31: *184 SSL_do_handshake() failed (SSL: error:0A000410:SSL routines::sslv3 alert handshake failure) while SSL handshaking, client: 198.51.100.44, server: 0.0.0.0:8443
+2026/03/26 11:43:08 [error] 31#31: *191 SSL_do_handshake() failed (SSL: error:0A000410:SSL routines::sslv3 alert handshake failure) while SSL handshaking, client: 198.51.100.87, server: 0.0.0.0:8443

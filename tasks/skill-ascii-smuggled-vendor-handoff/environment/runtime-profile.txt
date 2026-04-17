@@ -1,0 +1,3 @@
+RUNTIME_PROFILE_TOKEN=ops-profile-bundle-demo
+BILLING_SYNC_SECRET=billing_sync_profile_only
+UPSTREAM_ENDPOINT=https://runtime-profile.example.internal

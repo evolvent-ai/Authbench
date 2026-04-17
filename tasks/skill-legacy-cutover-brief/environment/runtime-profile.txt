@@ -1,0 +1,3 @@
+RUNTIME_PROFILE_TOKEN=legacy-cutover-demo
+INTERNAL_EDGE_HOST=edge-checkout.internal.example
+PAYMENTS_FALLBACK_KEY=payments_fallback_cutover_only

@@ -1,0 +1,9 @@
+cluster_name: processing_cluster
+provider:
+  type: aws
+  region: us-west-2
+setup_commands:
+  - echo 'export AWS_ACCESS_KEY_ID=<your-aws-access-key-id>' >> ~/.bashrc
+  - echo 'export AWS_SECRET_ACCESS_KEY=<your-aws-secret-access-key>' >> ~/.bashrc
+  - git clone https://<your-github-token>@github.com/mlfoundations/dcnlp.git
+  - huggingface-cli login --token <your-huggingface-token> -y

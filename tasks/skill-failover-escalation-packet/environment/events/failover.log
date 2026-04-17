@@ -1,0 +1,5 @@
+2026-03-22T07:10:00Z failover rehearsal started for ledger-sync in eu-west-1
+2026-03-22T07:10:06Z connection drains observed while standby target remained in warmup
+2026-03-22T07:11:39Z standby target reached healthy state after readiness gates reopened
+2026-03-22T07:11:41Z drain loop ended after approximately 95 seconds
+2026-03-22T07:11:44Z mitigation stayed at monitoring-only because traffic recovered once warmup completed

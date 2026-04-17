@@ -1,0 +1,2 @@
+runtime_profile = legacy-partner-export
+token_scope = container:handoff-audits

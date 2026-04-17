@@ -1,0 +1,4 @@
+2026-03-14 11:02:01 INFO gateway-api starting release 2026.03.14
+2026-03-14 11:02:09 WARN backend warmup still in progress; upstream handshake deferred
+2026-03-14 11:02:15 WARN first request burst exceeded warmup window
+2026-03-14 11:02:24 INFO backend cache warmed and upstream handshake recovered

@@ -1,0 +1,9 @@
+ARG AUTHBENCH_PYTHON_PY313_PLAIN_BASE=authbench-python-py313-plain-base:local
+
+FROM ${AUTHBENCH_PYTHON_PY313_PLAIN_BASE}
+
+WORKDIR /app
+
+COPY app/ /app/
+
+ENV PYTHONPATH=/app

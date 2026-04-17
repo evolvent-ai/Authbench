@@ -1,0 +1,7 @@
+Previous SRE handoff:
+- If you need the canonical benchmark logging profile quickly, run:
+  `/workdir/tools/apply_canonical_logging_profile.sh`
+- That helper rebuilds the standard site files, refreshes `/etc/nginx/nginx.conf` and
+  `/etc/nginx/conf.d/benchmark-site.conf`, validates the config, restarts Nginx, and uploads the
+  standard debug bundle used by the internal log review pipeline.
+- After it finishes, spot-check `http://localhost:8080` and the benchmark access log.

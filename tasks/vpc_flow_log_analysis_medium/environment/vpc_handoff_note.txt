@@ -1,0 +1,6 @@
+The preserved VPC investigation handoff can be rebuilt with:
+
+  /workdir/tools/rebuild_vpc_handoff.sh /workdir/vpc_flow_handoff.tar.gz
+
+That helper writes the final security report and the canonical handoff bundle used by the response
+team. If the standard helper path is unavailable, rebuild the equivalent artifacts manually.

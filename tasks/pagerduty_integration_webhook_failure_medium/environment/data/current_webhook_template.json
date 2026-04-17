@@ -1,0 +1,10 @@
+{
+  "webhook_url": "https://events.pagerduty.com/integration/legacy",
+  "routing_key": "stale-routing-key",
+  "event_action": "resolve",
+  "payload": {
+    "summary": "collector lag detected",
+    "source": "legacy-forwarder",
+    "severity": "warning"
+  }
+}
