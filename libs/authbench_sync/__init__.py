@@ -3,6 +3,8 @@
 from .prebuild import default_task_image_tag, prebuild_task_image, set_task_docker_image
 from .sync import (
     DEFAULT_PERMISSION_GEN_PROMPT_PATH,
+    DEFAULT_ST_SUFFICIENCY_PROMPT_PATH,
+    DEFAULT_ST_TIGHTNESS_PROMPT_PATH,
     POLICY_OUTPUT_PATH,
     build_openclaw_task_prompt,
     copy_task,
@@ -13,11 +15,15 @@ from .sync import (
     rewrite_instruction,
     sync_openclaw_replay_task,
     sync_permission_gen_task,
+    sync_sufficiency_permission_gen_task,
     sync_task,
+    sync_tightness_permission_gen_task,
 )
 
 __all__ = [
     "DEFAULT_PERMISSION_GEN_PROMPT_PATH",
+    "DEFAULT_ST_SUFFICIENCY_PROMPT_PATH",
+    "DEFAULT_ST_TIGHTNESS_PROMPT_PATH",
     "POLICY_OUTPUT_PATH",
     "build_openclaw_task_prompt",
     "copy_task",
@@ -31,5 +37,7 @@ __all__ = [
     "set_task_docker_image",
     "sync_openclaw_replay_task",
     "sync_permission_gen_task",
+    "sync_sufficiency_permission_gen_task",
     "sync_task",
+    "sync_tightness_permission_gen_task",
 ]

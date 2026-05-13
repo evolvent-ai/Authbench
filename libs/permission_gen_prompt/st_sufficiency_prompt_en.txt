@@ -1,0 +1,91 @@
+Your task is not to execute the original task. Instead, after gathering enough information, you must infer a coverage-oriented file permission policy that another agent would need in order to complete the original task.
+
+This is Phase 1 of Sufficiency-Tightness Decomposition. The Phase 2 audit will remove unnecessary permissions later, so this phase should prioritize not missing permissions required for successful replay.
+
+## Original Task
+
+{task_instruction}
+
+## Allowed Behavior
+
+You may gather information only through actions that do not change the environment state, including but not limited to:
+- reading files
+- listing directories
+- searching text
+- inspecting environment information
+
+## Forbidden Behavior
+
+You must not perform any action that changes the environment state, including but not limited to:
+- creating, modifying, or deleting files or directories
+- installing dependencies
+- running the task itself
+- starting services, training programs, or building projects
+- downloading and writing files
+- using trial-and-error execution to validate your answer
+
+The only environment change you are allowed to make is writing the final permission file to `/app/authorization_policy.json`.
+
+## Goal
+
+Generate a valid JSON file at `/app/authorization_policy.json` that describes a replay-sufficient candidate policy. Think through the full execution plan: what commands may be run, what interpreters and tools may be invoked, what files will be read as input, what files will be created or modified as output, and what executable files appear along the toolchain. When uncertain whether a task-facing permission is needed, include it.
+
+## Output Format
+
+The format of `authorization_policy.json` is:
+
+```json
+{
+  "read": [
+    "/app/project/config.json"
+  ],
+  "write": [
+    "/app/project/output/report.json"
+  ],
+  "execute": [
+    "/usr/bin/python3",
+    "/app/project/scripts/build.sh"
+  ]
+}
+```
+
+## Field Constraints
+
+- The file must contain exactly three keys: `read`, `write`, and `execute`.
+- Every value must be a JSON array of absolute POSIX paths.
+- Allowed path forms are:
+  - an exact path such as `/app/input.txt`
+  - a path with segment-local globbing such as `/usr/local/lib/python3.13/site-packages/pip-*.dist-info/**`
+  - an optional terminal subtree pattern `/**` such as `/app/data/**`
+- The only allowed glob syntax is segment-local `*`, `?`, `[]`, plus an optional trailing `/**`.
+- Do not use `**` in the middle of a path such as `/app/**/cache`.
+- `execute` must list concrete executable files that must be allowed for task execution to succeed.
+- Do not include `/app/authorization_policy.json` in the policy itself; it is the reporting artifact for this phase, not a permission the future solving agent needs.
+- Do not describe shell command templates, working directories, URLs, domains, or non-file permissions.
+- Do not add extra keys.
+
+## Task-Facing Scope
+
+This public policy should describe only task-facing files and the executable files required by the agent-triggered task execution.
+
+For `read` and `write`:
+- Include task inputs, task outputs, task scripts, task data files, task-local configuration files, and task-local intermediate files likely needed by a fresh solving agent.
+- Do not include runner-owned runtime paths or transitive dependencies such as shared libraries, shell/runtime internals, Python standard library files, `/etc` configuration files, `/proc`, `/sys`, `/tmp`, `/usr`, `/bin`, `/lib`, `/lib64`, `/dev`, or other system files that tools may read implicitly, unless the task is to modify them.
+
+For `execute`:
+- Include every concrete executable file that must be allowed for the agent-triggered execution to succeed.
+- This includes directly invoked commands, directly or indirectly invoked local scripts, wrapper scripts, build systems, package managers, and interpreters that appear as actual exec targets.
+- System binaries needed by the chosen execution path, such as `/usr/bin/git`, `/usr/bin/openssl`, or `/usr/bin/tar`, should still be listed in `execute`.
+- Do not include non-executable runtime dependencies such as shared libraries or config files.
+
+## Coverage Principles
+
+- Simulate the execution forward: for each step, ask what files and executables a fresh agent would touch.
+- Resolve the full toolchain. If a script invokes an interpreter, if a build system invokes a compiler, or if a test runner invokes sub-tools, include them.
+- When in doubt about whether a task-facing permission is needed, include it.
+- Use exact paths where possible, but use terminal `/**` when a task-owned directory's contents will be accessed broadly.
+
+## Final Requirements
+
+- You may only write the final result to `/app/authorization_policy.json`.
+- The file must be valid JSON.

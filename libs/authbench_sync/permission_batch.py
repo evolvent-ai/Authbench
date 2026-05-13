@@ -17,6 +17,18 @@ from .replay_batch import list_task_dirs
 DEFAULT_PERMISSION_GEN_PLAN_ROOT = AUTHBENCH_ROOT / "plans" / "permission_gen"
 DEFAULT_PERMISSION_GEN_JOBS_DIR = AUTHBENCH_ROOT / "jobs-gen"
 DEFAULT_PERMISSION_GEN_MAX_TURNS = 50
+DEFAULT_PERMISSION_GEN_AGENT_PROFILE = "terminus-2"
+AUTH_SUFFICIENCY_AGENT_PROFILE = "auth-sufficiency"
+AUTH_TIGHTNESS_AGENT_PROFILE = "auth-tightness"
+AUTH_SUFFICIENCY_AGENT_IMPORT_PATH = "libs.authbench_harbor_agents.st_decomposition_agents:AuthSufficiencyAgent"
+AUTH_TIGHTNESS_AGENT_IMPORT_PATH = "libs.authbench_harbor_agents.st_decomposition_agents:AuthTightnessAgent"
+VALID_PERMISSION_GEN_AGENT_PROFILES = frozenset(
+    {
+        DEFAULT_PERMISSION_GEN_AGENT_PROFILE,
+        AUTH_SUFFICIENCY_AGENT_PROFILE,
+        AUTH_TIGHTNESS_AGENT_PROFILE,
+    }
+)
 PERMISSION_GEN_DESCRIPTION_PREFIX = "Permission-generation tasks"
 PERMISSION_GEN_POLICY_ARTIFACT = "/app/authorization_policy.json"
 
@@ -43,9 +55,13 @@ def materialize_permission_gen_plan(
     jobs_dir: str | Path = DEFAULT_PERMISSION_GEN_JOBS_DIR,
     max_turns: int = DEFAULT_PERMISSION_GEN_MAX_TURNS,
     retry_max_retries: int = 0,
+    agent_profile: str = DEFAULT_PERMISSION_GEN_AGENT_PROFILE,
 ) -> PermissionGenPlan:
     if max_turns <= 0:
         raise ValueError("max_turns must be > 0")
+    if agent_profile not in VALID_PERMISSION_GEN_AGENT_PROFILES:
+        valid = ", ".join(sorted(VALID_PERMISSION_GEN_AGENT_PROFILES))
+        raise ValueError(f"agent_profile must be one of: {valid}")
 
     resolved_task_paths = list_task_dirs(tasks_root)
     resolved_plan_dir = Path(plan_dir).expanduser().resolve()
@@ -78,6 +94,7 @@ def materialize_permission_gen_plan(
             model_name=model_name,
             reasoning_effort=reasoning_effort,
             max_turns=max_turns,
+            agent_profile=agent_profile,
         ),
         artifacts=(PERMISSION_GEN_POLICY_ARTIFACT,),
     )
@@ -100,12 +117,43 @@ def _render_permission_gen_agent_block(
     model_name: str,
     reasoning_effort: str | None,
     max_turns: int,
+    agent_profile: str = DEFAULT_PERMISSION_GEN_AGENT_PROFILE,
 ) -> str:
     reasoning_effort_block = ""
     if reasoning_effort:
         reasoning_effort_block = f"      reasoning_effort: {reasoning_effort}\n"
+    if agent_profile == AUTH_SUFFICIENCY_AGENT_PROFILE:
+        return _render_import_path_agent_block(
+            import_path=AUTH_SUFFICIENCY_AGENT_IMPORT_PATH,
+            model_name=model_name,
+            reasoning_effort_block=reasoning_effort_block,
+            max_turns=max_turns,
+        )
+    if agent_profile == AUTH_TIGHTNESS_AGENT_PROFILE:
+        return _render_import_path_agent_block(
+            import_path=AUTH_TIGHTNESS_AGENT_IMPORT_PATH,
+            model_name=model_name,
+            reasoning_effort_block=reasoning_effort_block,
+            max_turns=max_turns,
+        )
     return (
         "  - name: terminus-2\n"
+        f"    model_name: {model_name}\n"
+        "    kwargs:\n"
+        f"{reasoning_effort_block}"
+        f"      max_turns: {max_turns}\n"
+    )
+
+
+def _render_import_path_agent_block(
+    *,
+    import_path: str,
+    model_name: str,
+    reasoning_effort_block: str,
+    max_turns: int,
+) -> str:
+    return (
+        f"  - import_path: {import_path}\n"
         f"    model_name: {model_name}\n"
         "    kwargs:\n"
         f"{reasoning_effort_block}"

@@ -11,10 +11,19 @@ from .openclaw_prompt import (
     render_openclaw_policy_prompt,
 )
 from .openclaw_replay import sync_openclaw_replay_task
-from .permission_gen import DEFAULT_PERMISSION_GEN_PROMPT_PATH, sync_permission_gen_task
+from .permission_gen import (
+    DEFAULT_PERMISSION_GEN_PROMPT_PATH,
+    DEFAULT_ST_SUFFICIENCY_PROMPT_PATH,
+    DEFAULT_ST_TIGHTNESS_PROMPT_PATH,
+    sync_permission_gen_task,
+    sync_sufficiency_permission_gen_task,
+    sync_tightness_permission_gen_task,
+)
 
 __all__ = [
     "DEFAULT_PERMISSION_GEN_PROMPT_PATH",
+    "DEFAULT_ST_SUFFICIENCY_PROMPT_PATH",
+    "DEFAULT_ST_TIGHTNESS_PROMPT_PATH",
     "POLICY_OUTPUT_PATH",
     "build_openclaw_task_prompt",
     "copy_task",
@@ -25,7 +34,9 @@ __all__ = [
     "rewrite_instruction",
     "sync_openclaw_replay_task",
     "sync_permission_gen_task",
+    "sync_sufficiency_permission_gen_task",
     "sync_task",
+    "sync_tightness_permission_gen_task",
 ]
 
 

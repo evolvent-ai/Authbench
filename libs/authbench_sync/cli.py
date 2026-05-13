@@ -18,10 +18,10 @@ from .permission_batch import (
     DEFAULT_PERMISSION_GEN_JOBS_DIR,
     DEFAULT_PERMISSION_GEN_MAX_TURNS,
     DEFAULT_PERMISSION_GEN_PLAN_ROOT,
+    VALID_PERMISSION_GEN_AGENT_PROFILES,
     materialize_permission_gen_plan,
 )
 from .prebuild import prebuild_task_image
-
 from .replay_batch import (
     DEFAULT_GENERATED_REPLAY_JOBS_DIR,
     DEFAULT_GENERATED_REPLAY_PLAN_ROOT,
@@ -31,12 +31,16 @@ from .replay_batch import (
     materialize_replay_plan,
     write_openclaw_replay_job_yaml,
 )
-
+from .st_decomposition import DEFAULT_ST_TIGHTNESS_PLAN_ROOT, materialize_st_tightness_plan
 from .sync import (
     DEFAULT_PERMISSION_GEN_PROMPT_PATH,
+    DEFAULT_ST_SUFFICIENCY_PROMPT_PATH,
+    DEFAULT_ST_TIGHTNESS_PROMPT_PATH,
     sync_openclaw_replay_task,
     sync_permission_gen_task,
+    sync_sufficiency_permission_gen_task,
     sync_task,
+    sync_tightness_permission_gen_task,
 )
 
 
@@ -62,6 +66,35 @@ def build_parser() -> argparse.ArgumentParser:
         "--prompt-file",
         default=str(DEFAULT_PERMISSION_GEN_PROMPT_PATH),
         help="Prompt template file that contains {task_instruction}.",
+    )
+
+    sufficiency_sync = subparsers.add_parser(
+        "st-sufficiency-task-sync",
+        help="Generate a Phase 1 sufficiency permission-generation variant of a Harbor task.",
+    )
+    sufficiency_sync.add_argument("src", help="Source Harbor task directory.")
+    sufficiency_sync.add_argument("dst", help="Destination generated task directory.")
+    sufficiency_sync.add_argument(
+        "--prompt-file",
+        default=str(DEFAULT_ST_SUFFICIENCY_PROMPT_PATH),
+        help="Sufficiency prompt template file that contains {task_instruction}.",
+    )
+
+    tightness_sync = subparsers.add_parser(
+        "st-tightness-task-sync",
+        help="Generate a Phase 2 tightness permission-generation variant of a Harbor task.",
+    )
+    tightness_sync.add_argument("src", help="Source Harbor task directory.")
+    tightness_sync.add_argument("dst", help="Destination generated task directory.")
+    tightness_sync.add_argument(
+        "--sufficiency-policy-file",
+        required=True,
+        help="Phase 1 authorization_policy.json file to mount for tightness audit.",
+    )
+    tightness_sync.add_argument(
+        "--prompt-file",
+        default=str(DEFAULT_ST_TIGHTNESS_PROMPT_PATH),
+        help="Tightness prompt template file that contains {task_instruction}.",
     )
 
     openclaw_replay_sync = subparsers.add_parser(
@@ -353,6 +386,76 @@ def build_parser() -> argparse.ArgumentParser:
         default=0,
         help="Harbor retry.max_retries value written into job.yaml.",
     )
+    permission_gen_plan.add_argument(
+        "--agent-profile",
+        choices=sorted(VALID_PERMISSION_GEN_AGENT_PROFILES),
+        default="terminus-2",
+        help="Permission-generation agent profile.",
+    )
+
+    st_tightness_plan = subparsers.add_parser(
+        "st-tightness-plan",
+        help="Materialize Phase 2 tightness tasks and a Harbor permission-generation plan from a Phase 1 job.",
+    )
+    st_tightness_plan.add_argument(
+        "src_root",
+        help="Root directory containing source tasks, usually tasks.",
+    )
+    st_tightness_plan.add_argument(
+        "dst_root",
+        help="Destination root for generated tightness permission-generation tasks.",
+    )
+    st_tightness_plan.add_argument(
+        "--sufficiency-policy-job",
+        required=True,
+        help="Phase 1 sufficiency Harbor job name or job directory.",
+    )
+    st_tightness_plan.add_argument(
+        "--plan-dir",
+        help=(
+            "Output directory for manifest.json, registry.json, and job.yaml. "
+            f"Default: {DEFAULT_ST_TIGHTNESS_PLAN_ROOT}/<job-name>"
+        ),
+    )
+    st_tightness_plan.add_argument("--job-name", required=True, help="Harbor job_name to write.")
+    st_tightness_plan.add_argument(
+        "--model-name",
+        default="gpt-5",
+        help="Tightness agent model_name to write into job.yaml.",
+    )
+    st_tightness_plan.add_argument(
+        "--reasoning-effort",
+        help="Optional tightness agent reasoning_effort to write into job.yaml.",
+    )
+    st_tightness_plan.add_argument(
+        "--n-attempts",
+        type=int,
+        default=1,
+        help="Harbor n_attempts value written into job.yaml.",
+    )
+    st_tightness_plan.add_argument(
+        "--n-concurrent-trials",
+        type=int,
+        default=1,
+        help="Harbor n_concurrent_trials value written into job.yaml.",
+    )
+    st_tightness_plan.add_argument(
+        "--jobs-dir",
+        default=str(DEFAULT_PERMISSION_GEN_JOBS_DIR),
+        help="Harbor jobs_dir value written into job.yaml.",
+    )
+    st_tightness_plan.add_argument(
+        "--max-turns",
+        type=int,
+        default=DEFAULT_PERMISSION_GEN_MAX_TURNS,
+        help="Tightness agent max_turns written into job.yaml.",
+    )
+    st_tightness_plan.add_argument(
+        "--retry-max-retries",
+        type=int,
+        default=0,
+        help="Harbor retry.max_retries value written into job.yaml.",
+    )
 
     prebuild_task = subparsers.add_parser(
         "prebuild-task-image",
@@ -384,6 +487,19 @@ def main(argv: list[str] | None = None) -> int:
             task_path = sync_permission_gen_task(
                 args.src,
                 args.dst,
+                prompt_template_path=args.prompt_file,
+            )
+        elif args.command == "st-sufficiency-task-sync":
+            task_path = sync_sufficiency_permission_gen_task(
+                args.src,
+                args.dst,
+                prompt_template_path=args.prompt_file,
+            )
+        elif args.command == "st-tightness-task-sync":
+            task_path = sync_tightness_permission_gen_task(
+                args.src,
+                args.dst,
+                sufficiency_policy_path=args.sufficiency_policy_file,
                 prompt_template_path=args.prompt_file,
             )
         elif args.command == "openclaw-replay-task-sync":
@@ -478,6 +594,31 @@ def main(argv: list[str] | None = None) -> int:
             )
             plan = materialize_permission_gen_plan(
                 args.tasks_root,
+                plan_dir=resolved_plan_dir,
+                job_name=args.job_name,
+                model_name=args.model_name,
+                reasoning_effort=args.reasoning_effort,
+                n_attempts=args.n_attempts,
+                n_concurrent_trials=args.n_concurrent_trials,
+                jobs_dir=args.jobs_dir,
+                max_turns=args.max_turns,
+                retry_max_retries=args.retry_max_retries,
+                agent_profile=args.agent_profile,
+            )
+            print(f"plan_dir={plan.plan_dir}")
+            print(f"manifest_path={plan.manifest_path}")
+            print(f"registry_path={plan.registry_path}")
+            task_path = plan.job_yaml_path
+        elif args.command == "st-tightness-plan":
+            resolved_plan_dir = (
+                Path(args.plan_dir).expanduser().resolve()
+                if args.plan_dir
+                else (DEFAULT_ST_TIGHTNESS_PLAN_ROOT / args.job_name).resolve()
+            )
+            plan = materialize_st_tightness_plan(
+                args.src_root,
+                args.dst_root,
+                sufficiency_policy_job=args.sufficiency_policy_job,
                 plan_dir=resolved_plan_dir,
                 job_name=args.job_name,
                 model_name=args.model_name,
